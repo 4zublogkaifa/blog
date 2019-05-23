@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Model\Title;
 class IndexController extends Controller
 {
     /*
@@ -12,6 +12,16 @@ class IndexController extends Controller
      * */
     public function index()
     {
-        return view('index/index');
+        $data = Title::get();
+        return view('index/index',['data'=>$data]);
+    }
+    
+    /*
+     * @content 文章详情
+     * 
+     * */
+    public function details()
+    {
+        return view('index/details');
     }
 }

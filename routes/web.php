@@ -11,3 +11,4 @@
 |
 */
 route::any('/',"IndexController@index");
+route::any('index/details',"IndexController@details");

@@ -22,18 +22,30 @@
         <span>MYBLOG</span>
         <img src="{{url('index/img/logo.png')}}">
       </a>
+
     </h1>
-   <!--  <div class="nav" style="text-align:center">
-      <a href="index.html" class="active">文章</a>
-      <a href="about.html">关于</a>
+      <?php if(session('user')==''){ ?>
+    <div class="welcome" style="display: block">
+      <p>Hi，等你好久了！</p>
+      <h4 style="float:left; padding-left:150px;"><a href="index/register">&nbsp;&nbsp;登录</a></h4>
+      <h4 style="float:left;"><a href="index/registerto" style="padding-left:20px;">注册</a></h4>
     </div>
-    <ul class="layui-nav header-down-nav">
-      <li class="layui-nav-item"><a href="index.html" class="active">文章</a></li>
-      <li class="layui-nav-item"><a href="whisper.html">微语</a></li>
-      <li class="layui-nav-item"><a href="leacots.html">留言</a></li>
-      <li class="layui-nav-item"><a href="album.html">相册</a></li>
-      <li class="layui-nav-item"><a href="about.html">关于</a></li>
-    </ul> -->
+      <?php }else{ ?>
+      <h4 style="float:left; padding-left:150px;"><a href="#">欢迎<span style="color:darkred;">{{session('user_name')}}</span>登录</a></h4>
+     
+      <?php }?>
+
+    <!--  <div class="nav" style="text-align:center">
+       <a href="index.html" class="active">文章</a>
+       <a href="about.html">关于</a>
+     </div>
+     <ul class="layui-nav header-down-nav">
+       <li class="layui-nav-item"><a href="index.html" class="active">文章</a></li>
+       <li class="layui-nav-item"><a href="whisper.html">微语</a></li>
+       <li class="layui-nav-item"><a href="leacots.html">留言</a></li>
+       <li class="layui-nav-item"><a href="album.html">相册</a></li>
+       <li class="layui-nav-item"><a href="about.html">关于</a></li>
+     </ul> -->
     <p class="welcome-text">
       欢迎来到<span class="name">好文章分享</span>博客
     </p>
@@ -69,7 +81,7 @@
                   <h3>{{$v->title_name}}<button class="layui-btn layui-btn-danger new-icon">new</button></h3>
                   <h5>设计文章</h5>
                   <p>{{$v->title_content}}</p>
-                  <a href="{{url('index/details')}}" class="go-icon"></a>
+                  <a href="{{url('index/details')}}?title_id={{$v->title_id}}" class="go-icon"></a>
                 </div>
             </div>
             </div>
